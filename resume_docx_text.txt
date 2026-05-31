@@ -1,0 +1,65 @@
+NAGAMOUNIKA VARIKUNTLA
+Aspiring Frontend Developer
+ +91 7331102982
+nagamounika624@gmail.com   | LinkedIn            
+ |
+GitHub | Ongole, Andhra Pradesh, India
+OBJECTIVE	
+Aspiring Frontend Developer with strong knowledge of HTML, CSS, JavaScript, React.js, and MySQL, focused on building responsive web applications. Strong problem-solving abilities and continuous learning mindset support success in dynamic development environments. Ready to contribute programming skills to innovative IT projects.
+EDUCATION	
+Bachelor of Technology (IT)
+KEY ACHIEVEMENTS	
+National Cadet Corps (NCC)
+Earned B Certificate with A Grade in the National Cadet Corps (NCC), demonstrating leadership and discipline
+SKILLS	
+Programming Languages: Python & Basics in C 
+Vignan's Foundation for Science, Technology & Research University       
+07/2023 - 05/2027                    Guntur, Andhra Pradesh
+Higher Secondary
+Sri Chaitanya Junior College
+06/2021 - 03/2023	 Ongole, Andhra Pradesh
+Secondary School
+Apex High School
+03/2020 - 06/2021	 Ongole, Andhra Pradesh
+INTERNSHIP EXPERIENCE	                                                                                
+Web Development Course
+Learned how to build websites using HTML, CSS, and JavaScript. Gained skills in creating responsive and user-friendly web pages. Worked on projects involving front-end design and basic back-end concepts.
+CERTIFICATES	                                                    
+Cambridge English - Preliminary (PET)
+Generative AI
+Covering basics of AI models like GPT, image generation, and prompt engineering. Learned how AI creates text, images, and other content using machine learning techniques
+Software Testing (NPTEL)
+Covers testing concepts like manual testing, automation basics, test cases, bug tracking, and validation techniques. This shows my understanding of how to check software quality and find errors
+Online Communication in the Digital Age (NPTEL)
+Focuses on effective communication using digital platforms, covering email writing, online etiquette, and professional communication. 
+Deep Learning - IIT Ropar (NPTEL) 
+CNNs, RNNs, attention mechanisms, and optimization techniques.
+CGPA-  7.79% 
+CGP - 90.6% 
+CGPA- 98%
+     Web Development: HTML, CSS, JavaScript, JSX,     React.js                          
+Tools: GitHub, VS code
+Databases: MYSQL, MongoDB
+Soft Skills: Communication, Teamwork, Problem Solving, Team Collaboration, Time Management, Adaptability
+Containerization Platform: Basics in Docker
+Core Concepts: REST APIs, Data Structures, DBMS, Data Visualization, Frontend Development,  OOP, Operating Systems, Machine Learning
+ACADEMIC PROJECTS	
+Real Time College Fest & Concert Updates
+Sends instant notifications for schedules, changes, and important announcements
+Shows event details clearly like time, venue, and registration information
+Improved event participation awareness for 500+ students
+Displayed event information for 20+ events including schedules and registrations.
+Implemented real-time updates using Socket.IO with <1 second notification delay
+Online Shopping System
+Link
+Allows users to browse and buy products online easily.
+Provides secure payment and order tracking
+Shows product details, prices, and offers in one place.
+Helps users shop anytime without visiting physical stores.
+Developed an Online Shopping System handling 100+ product listings and improving user browsing efficiency by 40%.
+Plagiarism Detection
+Link
+Compared 50+ text entries for similarity detection
+Generates	a	similarity	report	with percentage score
+Helps ensure original and authentic content writing
+Built plagiarism detection system with 90% matching accuracy using smart  text comparison 	algorithms
