@@ -8,10 +8,9 @@ node_modules/
 .env.*.local
 
 # Build outputs
-dist/
 build/
-*/dist/
 */build/
+# dist/ folders are committed for GitHub Pages deployment
 
 # IDEs
 .vscode/
