@@ -730,6 +730,12 @@ h1 {
     z-index: 2;
 }
 
+/* Utility: center timeline containers to a max width */
+.timeline-centered {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .dark-theme .timeline-item::before {
     border-color: var(--bg-dark);
 }
