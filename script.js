@@ -1,3 +1,4 @@
+console.log('✅ NEW script loaded!');
 document.addEventListener('DOMContentLoaded', () => {
     // API URL (only used for fetching portfolio data, falls back to local data)
     const API_BASE = 'http://localhost:5000/api';
