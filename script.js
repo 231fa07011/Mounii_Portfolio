@@ -397,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     title: "Web Development Course",
                     organization: "Web Development Training",
-                    duration: "07/2023 - Present",
+                    duration: "07/2023",
                     description: "• Learned how to build websites using HTML, CSS, and JavaScript.\n• Gained skills in creating responsive and user-friendly web pages.\n• Worked on projects involving front-end design and basic back-end concepts."
                 }
             ],
