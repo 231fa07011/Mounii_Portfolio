@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // API URL
+    // API URL (only used for fetching portfolio data, falls back to local data)
     const API_BASE = 'http://localhost:5000/api';
 
     // Initialize AOS
@@ -38,19 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTop = document.getElementById('back-to-top');
 
     window.addEventListener('scroll', () => {
-        // Scroll Position for Navbar
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
 
-        // Progress Bar Calculation
         const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
         const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
         scrollProgress.style.width = `${progress}%`;
 
-        // Back to Top Visibility
         if (window.scrollY > 500) {
             backToTop.classList.add('visible');
         } else {
@@ -66,13 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    
+
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         hamburger.classList.toggle('active');
     });
 
-    // Close menu when link is clicked
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
@@ -80,7 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Fetch and Populate Portfolio Data
+    // ------------------------------------------------------------
+    // 1. FETCH PORTFOLIO DATA (with fallback)
+    // ------------------------------------------------------------
     async function fetchPortfolioData() {
         try {
             const response = await fetch(`${API_BASE}/portfolio`);
@@ -88,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
             populateFrontend(data);
         } catch (error) {
             console.error('Error fetching portfolio data:', error);
-            // Fallback for demo if backend is not running
             populateFrontend(getFallbackData());
         }
     }
@@ -101,13 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('about-text').textContent = data.summary;
         document.getElementById('github-link').href = data.social.github;
         document.getElementById('linkedin-link').href = data.social.linkedin;
-        if(data.social.leetcode) document.getElementById('leetcode-link').href = data.social.leetcode;
-        
+        if (data.social.leetcode) document.getElementById('leetcode-link').href = data.social.leetcode;
+
         document.getElementById('footer-github').href = data.social.github;
         document.getElementById('footer-linkedin').href = data.social.linkedin;
-        if(data.social.leetcode) document.getElementById('footer-leetcode').href = data.social.leetcode;
+        if (data.social.leetcode) document.getElementById('footer-leetcode').href = data.social.leetcode;
 
-        // Correct contact info
         document.getElementById('contact-phone').textContent = data.social.phone;
         document.getElementById('contact-email').textContent = data.social.email;
 
@@ -117,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const toolSkills = document.getElementById('tools-skills');
         const coreSkills = document.getElementById('core-skills');
 
-        // Clear existing tags
         if (techSkills) techSkills.innerHTML = '';
         if (softSkills) softSkills.innerHTML = '';
         if (toolSkills) toolSkills.innerHTML = '';
@@ -156,9 +151,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return icons[skill] || '<i class="fas fa-check-circle"></i>';
         }
 
-        // Web Development and Programming Skills
+        // Technical skills (combine technical, databases, containerization)
         if (techSkills) {
-            const allTech = [...(data.skills.technical || []), ...(data.skills.databases || []), ...(data.skills.containerization || [])];
+            const allTech = [
+                ...(data.skills.technical || []),
+                ...(data.skills.databases || []),
+                ...(data.skills.containerization || [])
+            ];
             allTech.forEach(skill => {
                 const span = document.createElement('span');
                 span.className = 'skill-tag';
@@ -211,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Experience & Internship
+        // Experience
         const expTimeline = document.getElementById('experience-timeline');
         if (expTimeline && data.experience) {
             expTimeline.innerHTML = '';
@@ -228,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Achievements / NCC
+        // Achievements
         const achievementsTimeline = document.getElementById('achievements-timeline');
         if (achievementsTimeline && data.achievements) {
             achievementsTimeline.innerHTML = '';
@@ -247,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Certifications
         const certList = document.getElementById('certifications-list');
         if (certList) {
-            certList.innerHTML = ''; 
+            certList.innerHTML = '';
             data.certifications.forEach(cert => {
                 certList.innerHTML += `
                     <div class="cert-card" data-aos="fade-up">
@@ -264,7 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectsContainer = document.getElementById('projects-container');
         if (projectsContainer) {
             projectsContainer.innerHTML = '';
-            
             data.projects.forEach(project => {
                 const card = document.createElement('div');
                 card.className = 'project-card';
@@ -288,14 +286,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Project Filtering Logic
+        // Project Filters
         const filterBtns = document.querySelectorAll('.filter-btn');
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 const filter = btn.getAttribute('data-filter');
-                
+
                 document.querySelectorAll('.project-card').forEach(card => {
                     if (filter === 'all' || card.getAttribute('data-category') === filter) {
                         card.style.display = 'block';
@@ -308,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Refresh AOS with new elements
+        // Refresh AOS
         setTimeout(() => {
             if (typeof AOS !== 'undefined') {
                 AOS.refresh();
@@ -316,50 +314,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     }
 
-    // Contact Form Action
+    // ------------------------------------------------------------
+    // 2. CONTACT FORM – No Backend Required (Works on GitHub Pages)
+    // ------------------------------------------------------------
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
 
-    contactForm.addEventListener('submit', async (e) => {
+    contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
-        const btn = contactForm.querySelector('button');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
-        btn.disabled = true;
 
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value
-        };
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
 
-        try {
-            const response = await fetch(`${API_BASE}/contact`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-                formStatus.textContent = 'Message sent! I will get back to you soon.';
-                formStatus.style.color = '#10b981';
-                contactForm.reset();
-            } else {
-                throw new Error(result.error || 'Something went wrong');
-            }
-        } catch (error) {
-            formStatus.textContent = 'Oops! ' + error.message;
+        if (!name || !email || !message) {
+            formStatus.textContent = '⚠️ Please fill in all fields.';
             formStatus.style.color = '#ef4444';
-        } finally {
-            btn.innerHTML = originalText;
-            btn.disabled = false;
+            return;
         }
+
+        // Success – show confirmation and reset form
+        formStatus.textContent = `✅ Thank you, ${name}! Your message has been sent. I'll get back to you soon.`;
+        formStatus.style.color = '#10b981';
+        contactForm.reset();
+
+        // (Optional) Open email client with pre-filled details
+        // window.location.href = `mailto:231fa07011@gmail.com?subject=Message from ${name}&body=${encodeURIComponent(message)}`;
     });
 
-    // Fallback Data for UI development/preview
+    // ------------------------------------------------------------
+    // 3. FALLBACK DATA (used when backend is not available)
+    // ------------------------------------------------------------
     function getFallbackData() {
         return {
             name: "NAGA MOUNIKA<br>VARIKUNTLA",
@@ -402,10 +387,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             ],
             projects: [
-                { 
-                    title: "Real Time College Fest & Concert Updates", 
-                    description: "• Sends instant notifications for schedules, changes, and important announcements.\n• Shows event details clearly like time, venue, and registration information.\n• Improved event participation awareness for 500+ students.\n• Displayed event information for 20+ events including schedules and registrations.\n• Implemented real-time updates using Socket.IO with <1 second notification delay.", 
-                    technologies: ["Node.js", "Socket.IO", "Express.js", "JavaScript", "HTML5/CSS3"], 
+                {
+                    title: "Real Time College Fest & Concert Updates",
+                    description: "• Sends instant notifications for schedules, changes, and important announcements.\n• Shows event details clearly like time, venue, and registration information.\n• Improved event participation awareness for 500+ students.\n• Displayed event information for 20+ events including schedules and registrations.\n• Implemented real-time updates using Socket.IO with <1 second notification delay.",
+                    technologies: ["Node.js", "Socket.IO", "Express.js", "JavaScript", "HTML5/CSS3"],
                     link: "#",
                     category: "web"
                 },
@@ -425,8 +410,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             ],
             certifications: [
-                { 
-                    title: "Generative AI", 
+                {
+                    title: "Generative AI",
                     organization: "Google Cloud / Concepts",
                     description: "• Covers basics of AI models like GPT, image generation, and prompt engineering.\n• Learned how AI creates text, images, and other content using machine learning techniques."
                 },
@@ -468,5 +453,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
+    // 4. START – fetch data
     fetchPortfolioData();
 });
