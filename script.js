@@ -378,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     institution: "Vignan's Foundation for Science, Technology & Research University",
                     degree: "Bachelor of Technology in Information Technology",
                     duration: "07/2023 - 05/2027",
-                    description: "Guntur, Andhra Pradesh | CGPA: 7.79 / 10"
+                    description: "Guntur, Andhra Pradesh | CGPA: 7.92 / 10"
                 },
                 {
                     institution: "Sri Chaitanya Junior College",

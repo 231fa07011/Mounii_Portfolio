@@ -15,9 +15,6 @@ concurrency:
 
 jobs:
   build-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,22 +23,25 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '18'
 
       - name: Install frontend dependencies
-        run: npm ci -w frontend
+        run: |
+          cd frontend
+          npm ci
 
       - name: Build frontend
-        run: npm run build -w frontend
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v4
+        run: |
+          cd frontend
+          npm run build
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v2
         with:
           path: frontend/dist
 
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v1
+      
+      - name: Configure Pages
+        uses: actions/configure-pages@v4
