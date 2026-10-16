@@ -349,10 +349,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function getFallbackData() {
         return {
             name: "NAGA MOUNIKA<br>VARIKUNTLA",
-            title: "Aspiring Frontend Developer",
-            summary: "Aspiring Frontend Developer with strong knowledge of HTML, CSS, JavaScript, React.js, and MySQL, focused on building responsive web applications. Strong problem-solving abilities and continuous learning mindset support success in dynamic development environments.",
+            title: "B.Tech Information Technology Student (2027)",
+            summary: "B.Tech Information Technology student (2027) with hands-on experience in web development through an internship and academic projects. Skilled in Python, Java, HTML, CSS, JavaScript, React.js and MySQL with strong knowledge of OOPs, DBMS, and REST APIs. Built responsive web applications including a real-time event management platform and an e-commerce website. Familiar with Git/GitHub, with strong problem-solving, communication, and teamwork skills. Eager to apply technical skills and contribute effectively in a software role.",
             skills: {
-                technical: ["HTML5", "CSS3", "JavaScript", "JSX", "React.js", "Python", "Basics in C"],
+                technical: ["HTML5", "CSS3", "JavaScript", "JSX", "React.js", "Python", "Basics in java"],
                 databases: ["MySQL", "MongoDB"],
                 tools: ["Git", "GitHub", "VS Code"],
                 soft: ["Communication", "Teamwork", "Problem Solving", "Team Collaboration", "Time Management", "Adaptability"],
@@ -370,13 +370,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     institution: "Sri Chaitanya Junior College",
                     degree: "Higher Secondary (MPC)",
                     duration: "06/2021 - 03/2023",
-                    description: "Ongole, Andhra Pradesh | Percentage/CGPA: 90.6%"
+                    description: "Ongole, Andhra Pradesh | Percentage: 90.6"
                 },
                 {
                     institution: "Apex High School",
                     degree: "Secondary School (SSC)",
                     duration: "03/2020 - 06/2021",
-                    description: "Ongole, Andhra Pradesh | Percentage/CGPA: 98%"
+                    description: "Ongole, Andhra Pradesh | Percentage: 98"
                 }
             ],
             experience: [
@@ -441,7 +441,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     title: "National Cadet Corps (NCC)",
                     organization: "National Cadet Corps",
-                    description: "• Earned B Certificate with A Grade in the National Cadet Corps (NCC), demonstrating exceptional leadership, discipline, personal integrity, and commitment to community service."
+                    description: "• Earned B Certificate with A Grade, demonstrating leadership, discipline, personal integrity, and commitment to community service."
+                },
+                {
+                    title: "Event Coordination",
+                    organization: "Vignan Mahotsav-2025",
+                    description: "• Served as Public Relations and Digital Media (PR&DM) Coordinator for Vignan Mahotsav-2025, contributing to event promotion, communication, and media coordination."
+                },
+                {
+                    title: "ML Neurothon 2026",
+                    organization: "Dept. of IT",
+                    description: "• Actively participated in 'ML Neurothon 2K26' - 2 Day AI Coding Competition, showcasing problem-solving skills and practical AI application."
                 }
             ],
             social: {
